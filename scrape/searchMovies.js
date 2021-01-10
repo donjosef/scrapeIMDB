@@ -30,4 +30,4 @@ const getMovies = async (query) => {
         return movies
 }
 
-getMovies('back to the future')
+module.exports = getMovies
