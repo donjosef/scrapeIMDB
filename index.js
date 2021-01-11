@@ -5,6 +5,8 @@ const getMovie = require('./scrape/scrapeMovie')
 
 const app = express()
 
+app.use(express.static('./public'))
+
 app.get('/search/:movie', (req, res) => {
     getMovies(req.params.movie)
         .then(movies => {
