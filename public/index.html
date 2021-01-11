@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>IMDB Scraper</title>
+    <style>
+        .form-inline {
+            margin-top: 50px;
+            align-items: stretch;
+            height: 50px;
+        }
+
+        .form-inline .form-group {
+            flex: 1;
+            height: 100%;
+            margin-bottom: 0;
+            align-items: stretch;
+        }
+
+        .form-control {
+            flex: 1;
+            height: 100%;
+        }
+
+        .list-group {
+            margin: 50px 0;
+        }
+
+        .list-group-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .list-group-item:nth-child(even) {
+            background: #F6F6F5;
+        }
+
+        .movie-info {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body class="container">
+    <form class="form-inline">
+        <div class="form-group">
+            <label class="sr-only" for="search">Search for a movie</label>
+            <input type="search" class="form-control" id="search" placeholder="Search for a movie">
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    <ul class="list-group"></ul>
+
+    <script src="js/searchMovies.js"></script>
+</body>
+
+</html>
