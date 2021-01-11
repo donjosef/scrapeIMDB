@@ -14,9 +14,9 @@ const getMovies = async (query) => {
         .find('.findResult')
         .each((i, el) => {
             const elem = $(el)
-            const title = elem.find('.result_text a')
+            const title = elem.find('.result_text a').first()
             const img = elem.find('img')
-            const extraInfo = elem.find('.result_text').text().match(/\((.*)\)/)[0] //extract everything inside ()
+            const extraInfo = elem.find('.result_text').text().match(/\((.*)\)/)[0] //extract everything between ( )
             const movieID = title.attr('href').match(/title\/(.*)\//)[1] //extract movieid from href after title/
 
             movies.push({
