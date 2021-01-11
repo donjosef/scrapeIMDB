@@ -40,7 +40,7 @@ function renderMovie(movie) {
                             <dd>${movie.genres.join(', ')}</dd>
                         
                             <dt>Trailer</dt>
-                            <dd><a href="https://www.imdb.com${movie.trailer}">View trailer</a></dd>  
+                            <dd><a href="https://www.imdb.com${movie.trailer}" target="_blank">View trailer</a></dd>  
                         </dl>
                     </div>
                 </div>
