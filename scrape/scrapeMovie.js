@@ -3,7 +3,14 @@ const cheerio = require('cheerio')
 
 const baseUrl = 'https://www.imdb.com/title/'
 
+const movieCache = {}
+
 const scrapeMovie = async (movieID) => {
+    if(movieCache[movieID]) {
+        console.log('SERVING MOVIE FROM CACHE')
+        return Promise.resolve(movieCache[movieID])
+    }
+
     const { data } = await axios.get(`${baseUrl}${movieID}`)
     const $ = cheerio.load(data)
 
@@ -46,7 +53,7 @@ const scrapeMovie = async (movieID) => {
         })
     })
 
-    return {
+    const movie = {
         title,
         duration,
         releaseDate,
@@ -59,6 +66,9 @@ const scrapeMovie = async (movieID) => {
         storyline,
         genres
     }
+
+    movieCache[movieID] = movie
+    return movie
 }
 
 module.exports = scrapeMovie
