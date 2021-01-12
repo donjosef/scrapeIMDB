@@ -3,7 +3,14 @@ const cheerio = require('cheerio')
 
 const baseUrl = 'https://www.imdb.com/find?q='
 
+const searchCache = {}
+
 const getMovies = async (query) => {
+    if(searchCache[query]) {
+        console.log('SERVING MOVIES FROM CACHE...')
+        return Promise.resolve(searchCache[query])
+    }
+
     const { data } = await axios.get(`${baseUrl}${query}`)
 
     const $ = cheerio.load(data)
@@ -27,6 +34,7 @@ const getMovies = async (query) => {
             })
         })
 
+        searchCache[query] = movies
         return movies
 }
 
