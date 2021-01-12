@@ -1,5 +1,7 @@
 # Node.js imdb scraper
 
+[View live](https://imdb-scrpr.herokuapp.com/)
+
 A Basic web scraper with nodejs and cheerio. 
 The client served by public, fetches the data and populates the UI
 
